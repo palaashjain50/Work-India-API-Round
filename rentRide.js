@@ -6,6 +6,6 @@ export default async function rentRide(req, res) {
         res.json({ status: 'Please Login!' });
         return
     }
-    const { car_id, origin, destination, hours_requirement } = req.query;
+    const { car_id, origin, destination, hours_requirement } = req.body;
     const carAvailable = sqlfunction.findCar(car_id, origin, destination, hours_requirement);
 }

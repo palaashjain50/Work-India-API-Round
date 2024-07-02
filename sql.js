@@ -54,7 +54,9 @@ async function createCar(category, model, number_plate, current_city, rent_per_h
 }
 
 async function findCar(car_id, origin, destination, hours_required) {
-    
+    console.log(origin);
+    const availableCars = await con.query(`select * from cars where current_city="${origin}"`);
+    console.log(availableCars);
 }
 
-export default { connectDB, findUser, createUser, validateUser, isAdmin, createCar };
+export default { connectDB, findUser, createUser, validateUser, isAdmin, createCar, findCar };
